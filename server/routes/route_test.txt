@@ -1,0 +1,11 @@
+// post a rivy
+curl --data 'title=title1&link=rivy1' http://localhost:3000/rivys
+
+// upvote a rivy
+curl -X PUT http://localhost:3000/rivys/54fa5ea2bb0881b15c316044/upvote
+
+// post a comment to a rivy
+curl --data 'body=fuckoff&author=jack' http://localhost:3000/rivys/54fa5ea2bb0881b15c316044/comments
+
+// upvote a comment
+curl -X PUT http://localhost:3000/rivys/54fa5ea2bb0881b15c316044/comments/54fa5ec5bb0881b15c316045/upvote
