@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  
+  <title>My App</title>  
+  
+  <link rel="stylesheet" href="lib/onsen/css/onsenui.css">  
+  <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">  
+  <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css"> 
+  <link rel="stylesheet" href="stylesheets/app.css"/>
+  <link rel="stylesheet" href="stylesheets/style.css"/>
+
+  <script src="lib/onsen/js/angular/angular.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>    
+  <script src="lib/onsen/js/onsenui.js"></script>
+
+  <script src="javascripts/app.js"></script>   
+
+</head>
+
+<body ng-controller="AppController">
+  
+  <div>
+
+    <ons-navigator var="myNavigator"></ons-navigator>
+
+    <ons-tabbar>
+      <!-- <ons-tab active="true" page="templates/home.html"> -->
+      <ons-tab active="true" page="templates/home.html">
+        <div class="tab">
+          <ons-icon icon="ion-home" class="tab-icon"></ons-icon>
+          <div class="tab-label">Timeline</div>
+        </div>
+      </ons-tab>
+
+      <ons-tab page="templates/rivyForm.html">
+        <div class="tab">
+          <ons-icon icon="ion-gear-b" class="tab-icon"></ons-icon>
+          <div class="tab-label">RivyForm</div>
+        </div>
+      </ons-tab>
+
+      <ons-tab page="templates/settings.html">
+        <div class="tab">
+          <ons-icon icon="ion-gear-a" class="tab-icon"></ons-icon>
+          <div class="tab-label">Settings</div>
+        </div>
+      </ons-tab>
+    </ons-tabbar>
+
+  </div>
+</body>
+</html>

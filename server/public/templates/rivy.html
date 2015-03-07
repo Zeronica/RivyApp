@@ -1,0 +1,26 @@
+<ons-page controller="AppController">
+    <ons-toolbar>
+      <div class="left"><ons-back-button>Back</ons-back-button></div>
+      <div class="center">Home</div>
+      <div class="right"></div>
+    </ons-toolbar>
+
+    <ons-list style="margin: -1px 0">
+
+      <ons-list-item modifier="chevron" ng-model="getCurrentRivy() as rivy" class="item">
+        <ons-row>
+          <ons-col width="60px"> 
+            <div class="item-thum"></div>
+          </ons-col>
+          <ons-col>
+            <header>
+              <span class="item-title">{{rivy.title}}</span>
+              <span class="item-label">{{rivy.created}}</span>
+            </header>
+            <p class="item-desc">{{rivy.body}}</p>
+          </ons-col>
+        </ons-row>                          
+      </ons-list-item>
+
+    </ons-list>
+</ons-page>
