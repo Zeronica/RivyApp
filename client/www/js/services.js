@@ -14,7 +14,13 @@ angular.module('starter.services', [])
             alert("error with loading rivys");
           })
         return;
-    };
+    },
+
+    o.create = function(rivy) {
+      return $http.post('http://localhost:3000/rivys', rivy).success(function(data){
+      o.rivys.push(data);
+    });
+  };
 
     return o;
   }

@@ -90,6 +90,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }
     })
+    .state('tab.rivyform', {
+      url: '/rivyform',
+      views: {
+        'tab-rivyform': {
+          templateUrl: 'templates/tab-rivyform.html',
+          controller: 'RivyFormCtrl'
+        }
+      }
+    })
 
   .state('tab.account', {
     url: '/account',

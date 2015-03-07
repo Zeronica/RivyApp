@@ -1,0 +1,11 @@
+<ion-view view-title="RivyForm">
+  <ion-content>
+    <form ng-submit="addRivy()">
+	  	<input type="text" placeholder="Title" ng-model="inputObject.rivytitle"></input>
+	  	<br>
+	  	<input type="text" placeholder="Comment" ng-model="inputObject.body"></input>
+	  	<br>
+	</form>
+	<button ng-click="addRivy()" type="submit">Post</button>
+  </ion-content>
+</ion-view>

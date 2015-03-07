@@ -26,6 +26,32 @@ angular.module('starter.controllers', [])
   $scope.friend = Friends.get($stateParams.friendId);
 })
 
+.controller('RivyFormCtrl', [
+  '$scope',
+  'rivys', 
+  function($scope, rivys) {
+    $scope.rivys = rivys.rivys;
+
+    $scope.inputObject = {
+      rivytitle: "",
+      body: "" 
+    };
+    
+    $scope.addRivy = function(){
+        if($scope.inputObject.rivytitle === "") { 
+          alert("write the title u fuk");
+          return; 
+        } 
+        console.log($scope.inputObject.rivytitle)
+        rivys.create({
+          rivytitle: $scope.inputObject.rivytitle,
+          body: $scope.inputObject.body,
+        })
+      $scope.inputObject.rivytitle = "";
+      $scope.inputObject.body = "";
+    };
+}])
+
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true
