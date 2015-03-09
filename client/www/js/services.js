@@ -22,9 +22,16 @@ angular.module('starter.services', [])
     });
   };
 
+    o.get = function(id) {
+    return $http.get('http://localhost:3000/rivys/' + id).then(function(res){
+    return res.data;
+    });
+  };
+
     return o;
   }
 ])
+
 
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
