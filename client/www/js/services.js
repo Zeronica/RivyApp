@@ -28,6 +28,17 @@ angular.module('starter.services', [])
     });
   };
 
+    o.addComment = function(id, comment) {
+    return $http.post('http://localhost:3000/rivys/' + id + '/comments', comment);
+  };
+
+    o.upvote = function(rivy) {
+    return $http.put('http://localhost:3000/rivys/' + rivy._id + '/upvote')
+      .success(function(data){
+        rivy.upvotes += 1;
+      });
+  };
+
     return o;
   }
 ])

@@ -1,10 +1,16 @@
+
 <ion-view view-title="Feed">
   <ion-content>
      <ion-list>
-   <ion-item class="item-remove-animate item-icon-right" ng-repeat="rivy in rivys" type="item-text-wrap" href="#/tab/feed/{{rivy._id}}">
+   <ion-item class="item-remove-animate item-icon-right item-button-right" ng-repeat="rivy in rivys | orderBy:'-upvotes'" type="item-text-wrap" href="#/tab/feed/{{rivy._id}}">
       <h2>{{rivy.title}}</h2>
       <p>{{rivy.body}}</p>
       <i class="icon ion-chevron-right icon-accessory"></i>
+      
+      <button class="button icon-left ion-thumbsup button-outline button-positive" style="right:70px !important; top:17px !important" ng-click="incrementUpvotes(rivy)" href="n">
+     {{rivy.upvotes}}
+      </button>
+    
     </ion>
  <ion-list>
 </ion-content>

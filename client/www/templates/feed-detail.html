@@ -5,5 +5,26 @@
     	{{rivy.body}}
   		</div>
 	</div>
+
+		<div class="list" ng-repeat="comment in rivy.comments | orderBy:'-upvotes'">
+    	<div class="item">
+    	<span class="glyphicon glyphicon-thumbs-up"
+      	ng-click="incrementUpvotes(comment)"></span>
+    	{{comment.body}}
+    	</div>
+  		</div> 
+
+		<form ng-submit="addComment()"
+	    style="margin-top:30px;">
+	    <h3>Add a new comment</h3>
+
+	    <div class="form-group">
+	      <input type="text"
+	      class="form-control"
+	      placeholder="Comment"
+	      ng-model="inputObject.body"></input>
+	    </div>
+	    <button type="submit" class="btn btn-primary">Post</button>
+	  </form>
   </ion-content>
 </ion-view>
