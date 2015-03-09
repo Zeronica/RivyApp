@@ -52,6 +52,14 @@ angular.module('starter.controllers', [])
     };
 }])
 
+.controller('FeedDetailCtrl', [
+'$scope',
+'rivys',
+'rivy',
+function($scope, rivys, rivy){
+  $scope.rivy = rivy;
+}])
+
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true

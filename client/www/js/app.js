@@ -52,6 +52,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }]
     }
   })
+  
+  .state('tab.feed-detail', {
+      url: '/feed/{id}',
+      views: {
+        'tab-feed': {
+          templateUrl: 'templates/feed-detail.html',
+          controller: 'FeedDetailCtrl'
+        }
+      },
+      resolve: {
+      rivy: ['$stateParams', 'rivys', function($stateParams, rivys) {
+      return rivys.get($stateParams.id);
+    }]
+  }
+})
 
   .state('tab.chats', {
       url: '/chats',
