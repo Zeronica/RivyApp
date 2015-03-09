@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', [
+.controller('FeedCtrl', [
   '$scope',
   'rivys', 
   function($scope, rivys) {
@@ -33,21 +33,21 @@ angular.module('starter.controllers', [])
     $scope.rivys = rivys.rivys;
 
     $scope.inputObject = {
-      rivytitle: "",
+      title: "",
       body: "" 
     };
     
     $scope.addRivy = function(){
-        if($scope.inputObject.rivytitle === "") { 
+        if($scope.inputObject.title === "") { 
           alert("write the title u fuk");
           return; 
         } 
-        console.log($scope.inputObject.rivytitle)
+        // console.log($scope.inputObject.title)
         rivys.create({
-          rivytitle: $scope.inputObject.rivytitle,
+          title: $scope.inputObject.title,
           body: $scope.inputObject.body,
         })
-      $scope.inputObject.rivytitle = "";
+      $scope.inputObject.title = "";
       $scope.inputObject.body = "";
     };
 }])
