@@ -5,6 +5,9 @@ angular.module('starter.controllers', [])
   'rivys', 
   function($scope, rivys) {
     $scope.rivys = rivys.rivys;
+    $scope.incrementUpvotes = function(rivy) {
+    rivys.upvote(rivy);
+};
 }])
 
 .controller('ChatsCtrl', function($scope, Chats) {
@@ -58,6 +61,22 @@ angular.module('starter.controllers', [])
 'rivy',
 function($scope, rivys, rivy){
   $scope.rivy = rivy;
+
+  $scope.inputObject = {
+      body: "" 
+    };
+  
+  $scope.addComment = function(){
+  if($scope.body === '') { return; }
+  rivys.addComment(rivy._id, {
+    body: $scope.inputObject.body,
+    author: 'user',
+  }).success(function(comment) {
+    $scope.rivy.comments.push(comment);
+  });
+  $scope.inputObject.body = '';
+};
+
 }])
 
 .controller('AccountCtrl', function($scope) {
