@@ -1,11 +1,25 @@
 <ion-view view-title="RivyForm">
   <ion-content>
-    <form ng-submit="addRivy()">
+    <!-- <form ng-submit="addRivy()">
 	  	<input type="text" placeholder="Title" ng-model="inputObject.title"></input>
 	  	<br>
 	  	<input type="text" placeholder="Comment" ng-model="inputObject.body"></input>
 	  	<br>
 	</form>
-	<button ng-click="addRivy()" type="submit">Post</button>
+	<button ng-click="addRivy()" type="submit">Post</button> -->
+
+<form ng-submit="addRivy()">
+	<div class="list">
+  <label class="item item-input">
+    <input type="text" placeholder="Title" ng-model="inputObject.title">
+  </label>
+  <label class="item item-input">
+    <input type="text" placeholder="Comment" ng-model="inputObject.body">
+  </label>
+</div>
+</form>
+<button class="button button-block button-calm" ng-click="addRivy()" type="submit">
+  Post
+</button>
   </ion-content>
 </ion-view>
