@@ -33,14 +33,14 @@ angular.module('starter.services', [])
   };
 
     o.upvote = function(rivy) {
-    return $http.put('http://localhost:3000/rivys/' + rivy._id + '/upvote')
+    return $http.post('http://localhost:3000/rivys/' + rivy._id + '/upvote')
       .success(function(data){
         rivy.upvotes += 1;
       });
   };
 
     o.upvoteComment = function(rivy, comment) {
-    return $http.put('http://localhost:3000/rivys/' + rivy._id + '/comments/'+ comment._id + '/upvote')
+    return $http.post('http://localhost:3000/rivys/' + rivy._id + '/comments/'+ comment._id + '/upvote')
     .success(function(data){
       comment.upvotes += 1;
     });
