@@ -1,0 +1,37 @@
+1. RivyFeed (can be navigated to through clicking its own tab on the tab bar)
+	should display rivys in list format. Each rivy should display title and body. 
+	
+	To get rivys from the server:
+	GET http://localhost:3000/rivys
+
+2. RivyProfile (can be navigated to through clicking a rivy in RivyFeed)
+	should display a single rivy on the top, and a list of comments on the bottom
+
+	to get a single rivy as well as its comments:
+	GET http://localhost:3000/rivys/<RIVY_ID>
+
+	should also have a text input at the bottom that allows to insert a comment
+	to post a comment:
+	POST http://localhost:3000/rivys/<RIVY_ID>/comments
+	body should include
+		body: STRING
+
+3. RivyForm (a form, with title and body)
+	posts a single rivy
+	POST http://localhost:3000/rivys/<RIVY_ID>
+	body should include
+		title: STRING
+		body: STRING
+
+4. RivyFeed 2.0
+	add a "like"/"upvote" button on the right of each rivy
+	to upvote a rivy:
+	
+	PUT http://localhost:3000/rivys/<RIVY_ID>/upvote
+
+5. RivyProfile 2.0
+	add a "like"/"upvote" button on the right of each comment
+	to upvote a comment:
+
+	PUT http://localhost:3000/rivys/<RIVY_ID>/comments/<COMMENT_ID>/upvote
+

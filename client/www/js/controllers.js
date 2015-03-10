@@ -71,7 +71,7 @@ function($scope, rivys, rivy){
   };
   
   $scope.addComment = function(){
-  if($scope.body === '') { return; }
+  if($scope.inputObject.body === '') { return; }
   rivys.addComment(rivy._id, {
     body: $scope.inputObject.body,
     author: 'user',

@@ -62,8 +62,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       },
       resolve: {
-      rivy: ['$stateParams', 'rivys', function($stateParams, rivys) {
-      return rivys.get($stateParams.id);
+        rivy: ['$stateParams', 'rivys', function($stateParams, rivys) {
+        return rivys.get($stateParams.id);
     }]
   }
 })
