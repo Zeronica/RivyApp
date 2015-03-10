@@ -2,7 +2,7 @@
   <ion-content class="padding">
     
 		<div class="card">
-		  <div class="item item-text-wrap">
+		  <div class="item item-text-wrap" style="font-size:175%">
 		    {{rivy.body}}
 		  </div>
 		</div>
@@ -25,7 +25,9 @@
 	      placeholder="Comment"
 	      ng-model="inputObject.body"></input>
 	    </div>
-	    <button type="submit" class="btn btn-primary">Post</button>
+	 	  <button type ="submit" class="button button-block button-positive" ng-click="addRivy()" type="submit">
+  		Post
+		</button>
 	  </form>
   
 
