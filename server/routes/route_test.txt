@@ -9,3 +9,7 @@ curl --data 'body=fuckoff&author=jack' http://localhost:3000/rivys/54fa5ea2bb088
 
 // upvote a comment
 curl -X PUT http://localhost:3000/rivys/54fa5ea2bb0881b15c316044/comments/54fa5ec5bb0881b15c316045/upvote
+
+54fe5dec9622160753eaae88
+
+curl POST http://localhost:3000/rivys/54fd253332ce196b0ef149eb/comments/54fe5dec9622160753eaae88/upvote

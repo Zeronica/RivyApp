@@ -18,6 +18,7 @@ router.param('rivy', function(req, res, next, id) {
   });
 });
 router.param('comment', function(req, res, next, id) {
+  console.log(id);
   var query = Comment.findById(id);
 
   query.exec(function (err, comment){
@@ -77,7 +78,7 @@ router.get('/rivys/:rivy', function(req, res) {
 });
 
 /*upvote a single rivy*/
-router.put('/rivys/:rivy/upvote', function(req, res, next) {
+router.post('/rivys/:rivy/upvote', function(req, res, next) {
   req.rivy.upvote(function(err, rivy){
     if (err) { return next(err); }
 
@@ -86,7 +87,7 @@ router.put('/rivys/:rivy/upvote', function(req, res, next) {
 });
 
 /*upvote a single comment*/
-router.put('/rivys/:rivy/comments/:comment/upvote', function(req, res, next) {
+router.post('/rivys/:rivy/comments/:comment/upvote', function(req, res, next) {
   req.comment.upvote(function(err, comment){
     if (err) { return next(err); }
 
