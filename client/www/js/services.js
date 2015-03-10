@@ -39,6 +39,13 @@ angular.module('starter.services', [])
       });
   };
 
+    o.upvoteComment = function(rivy, comment) {
+    return $http.put('http://localhost:3000/rivys/' + rivy._id + '/comments/'+ comment._id + '/upvote')
+    .success(function(data){
+      comment.upvotes += 1;
+    });
+  };
+
     return o;
   }
 ])

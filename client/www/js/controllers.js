@@ -65,6 +65,10 @@ function($scope, rivys, rivy){
   $scope.inputObject = {
       body: "" 
     };
+
+  $scope.incrementUpvotes = function(comment){
+  rivys.upvoteComment(rivy, comment);
+  };
   
   $scope.addComment = function(){
   if($scope.body === '') { return; }
