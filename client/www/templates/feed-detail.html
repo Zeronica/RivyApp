@@ -1,24 +1,25 @@
 <ion-view view-title="{{rivy.title}}">
   <ion-content class="padding">
-    <div class="card">
-  		<div class="item item-text-wrap">
-    	{{rivy.body}}
-  		</div>
-	</div>
+    
+		<div class="card">
+		  <div class="item item-text-wrap">
+		    {{rivy.body}}
+		  </div>
+		</div>
 
-		<div class="list" ng-repeat="comment in rivy.comments | orderBy:'-upvotes'">
-    	<div class="item">
-    	<span class="glyphicon glyphicon-thumbs-up"
-      	ng-click="incrementUpvotes(comment)"></span>
-    	{{comment.body}}
-    	</div>
-  		</div> 
+		<div class="card">
+		  <div class="item item-text-wrap item-button-right" ng-repeat="comment in rivy.comments | orderBy:'-upvotes'">
+		    {{comment.body}}
+		    <button class="button icon-left ion-thumbsup button-clear button-positive" style="top:4px !important" ng-click="incrementUpvotes(rivy)">
+		     {{rivy.upvotes}}
+		      </button>
+		  </div>
+		</div>
 
 		<form ng-submit="addComment()"
 	    style="margin-top:30px;">
 	    <h3>Add a new comment</h3>
-
-	    <div class="form-group">
+		<div class="form-group">
 	      <input type="text"
 	      class="form-control"
 	      placeholder="Comment"
@@ -26,5 +27,7 @@
 	    </div>
 	    <button type="submit" class="btn btn-primary">Post</button>
 	  </form>
+  
+
   </ion-content>
 </ion-view>
