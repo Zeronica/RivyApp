@@ -33,11 +33,21 @@ google.maps.event.addDomListener(document.getElementById("map"), 'load', $scope.
 .controller('FeedCtrl', [
   '$scope',
   'rivys', 
-  function($scope, rivys) {
+  '$http',
+  function($scope, rivys, $http) {
     $scope.rivys = rivys.rivys;
     $scope.incrementUpvotes = function(rivy) {
     rivys.upvote(rivy);
-};
+    };
+    $scope.doRefresh = function() {
+    $http.get("http://localhost:3000/rivys")
+     .success(function(newItems) {
+       $scope.rivys = newItems;
+     }).finally(function() {
+       $scope.$broadcast('scroll.refreshComplete');
+     });
+    }
+
 }])
 
 .controller('RivyFormCtrl', [
