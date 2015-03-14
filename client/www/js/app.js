@@ -38,6 +38,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
 
+
   .state('tab.feed', {
     url: '/feed',
     views: {
@@ -52,6 +53,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }]
     }
   })
+
+   .state('tab.home', {
+      url: '/home',
+      views: {
+        'tab-home': {
+          templateUrl: 'templates/tab-home.html',
+          // controller: 'HomeCtrl'
+        }
+      }
+    })
   
   .state('tab.feed-detail', {
       url: '/feed/{id}',
