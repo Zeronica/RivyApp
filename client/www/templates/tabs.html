@@ -5,6 +5,10 @@ navigation history that also transitions its views in and out.
 -->
 <ion-tabs ng-class="{'tabs-item-hide': $root.hideTabs}" class="tabs-icon-top tabs-color-active-positive">
 
+  <!-- Home Tab -->
+  <ion-tab title="Home" icon-off="ion-ios7-home-outline" icon-on="ion-ios7-home" href="#/tab/home">
+    <ion-nav-view name="tab-home"></ion-nav-view>
+  </ion-tab>
 
   <!-- RivyFeed Tab -->
   <ion-tab title="HomeFeed" icon-off="ion-ios7-chatboxes-outline" icon-on="ion-ios7-chatboxes" href="#/tab/feed">
@@ -14,11 +18,6 @@ navigation history that also transitions its views in and out.
   <!-- Account Tab -->
   <ion-tab title="Account" icon-off="ion-ios7-gear-outline" icon-on="ion-ios7-gear" href="#/tab/account">
     <ion-nav-view name="tab-account"></ion-nav-view>
-  </ion-tab>
-
-  <!-- Home Tab -->
-  <ion-tab title="Home" icon-off="ion-ios7-home-outline" icon-on="ion-ios7-home" href="#/tab/home">
-    <ion-nav-view name="tab-home"></ion-nav-view>
   </ion-tab>
 
   <!-- RivyForm Tab -->
