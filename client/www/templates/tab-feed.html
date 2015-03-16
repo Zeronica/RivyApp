@@ -3,14 +3,14 @@
     <ion-refresher pulling-text="Pull to refresh" on-refresh="doRefresh()">
     </ion-refresher>
      <ion-list>
-      <ion-item class="item-remove-animate item-icon-right item-button-right" ng-repeat="rivy in rivys | orderBy:'-upvotes'" type=" item-text-wrap">
+      <ion-item class=" item-icon-right item-button-right" ng-repeat="rivy in rivys | orderBy:'-upvotes'" type=" item-text-wrap">
       <a style="text-decoration:none" href="#/tab/feed/{{rivy._id}}">
       <h2>{{rivy.title}}</h2>
       <p>{{rivy.body}}</p>
       <i class="icon ion-chevron-right icon-accessory"></i>
       </a>
       
-      <button class="button icon-left ion-thumbsup button-clear button-positive" style="right:70px !important; top:17px !important" ng-click="incrementUpvotes(rivy)">
+      <button class="button icon-left ion-thumbsup button-clear button-positive padding" style="right:35px !important" ng-click="incrementUpvotes(rivy)">
       {{rivy.upvotes}}
       </button>
    
