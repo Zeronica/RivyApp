@@ -9,13 +9,16 @@
 		</div>
 
 		<div class="card">
-		  <div class="item item-text-wrap item-button-right" ng-repeat="comment in rivy.comments | orderBy:'-upvotes'">
-		    {{comment.body}}
-		    <button class="button icon-left ion-thumbsup button-clear button-positive" style="top:4px !important" ng-click="incrementUpvotes(comment)">
-		     {{comment.upvotes}}
-		      </button>
-		  </div>
+		  <ion-list>
+			  <ion-item class="item-button-right" ng-repeat="comment in rivy.comments | orderBy:'-upvotes'" type="item-text-wrap">
+			    {{comment.body}}
+			    <button class="button icon-left ion-thumbsup button-clear button-positive" style="top:4px !important" ng-click="incrementUpvotes(comment)">
+			     {{comment.upvotes}}
+			      </button>
+			  </ion-item>
+			</ion-list>
 		</div>
+
 		
   	</ion-content>
 
@@ -30,4 +33,5 @@
 	  		</button>
 		</div>
 	</form>
+</ion-view>
 
