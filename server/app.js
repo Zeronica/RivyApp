@@ -8,11 +8,13 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 require('./models/Rivys');
 require('./models/Comments');
+require('./models/Locations');
 
 mongoose.connect('mongodb://localhost/rivy');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var rivys = require('./routes/rivys');
+var locations = require('./routes/locations');
 
 var app = express();
 
@@ -29,7 +31,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/rivys', rivys);
+app.use('/locations', locations);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
