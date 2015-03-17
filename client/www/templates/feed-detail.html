@@ -1,6 +1,6 @@
 
 <ion-view view-title="{{rivy.title}}" hide-tabs='true'>
-  <ion-content class="padding">
+  <ion-content>
  
 		<div class="card">
 		  <div class="item item-text-wrap" style="font-size:175%">
@@ -15,15 +15,17 @@
 			    <button class="button icon-left ion-thumbsup button-clear button-positive" style="top:4px !important" ng-click="incrementUpvotes(comment)">
 			     {{comment.upvotes}}
 			      </button>
-			  </ion-item>
+			  </ion>
 			</ion-list>
 		</div>
 
 		
   	</ion-content>
 
-	<form ng-submit="addComment()">
-		<div class="bar bar-footer item-input-inset">
+	
+</ion-view>
+<form ng-submit="addComment()">
+		<ion-footer-bar class="bar bar-footer item-input-inset">
 	  		<label class="item-input-wrapper">
 	    	<i class="icon ion-ios7-chatbubble-outline placeholder-icon"></i>
 	    	<input type="text" class="form-control" placeholder="Comment" ng-model="inputObject.body">
@@ -31,7 +33,5 @@
 	  		<button class="button button-clear" type="submit" ng-click="addComment()">
 	    	Post
 	  		</button>
-		</div>
+		</ion-footer-bar>
 	</form>
-</ion-view>
-
