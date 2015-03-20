@@ -110,23 +110,6 @@ function($scope, rivys, rivy){
   };
 });
 
-
-var module = angular.module('starter.directives', []);
-module.directive('hideTabs', function($rootScope) {
-    return {
-        restrict: 'A',
-        link: function(scope, element, attributes) {
-            scope.$watch(attributes.hideTabs, function(value){
-                $rootScope.hideTabs = value;
-            });
-
-            scope.$on('$destroy', function() {
-                $rootScope.hideTabs = false;
-            });
-        }
-    };
-});
-
 .controller('TestMapCtrl', function($scope, $ionicLoading) {
    $scope.initialise = function() {
       console.log("In Google.maps.event.addDomListener");
@@ -155,4 +138,22 @@ module.directive('hideTabs', function($rootScope) {
 google.maps.event.addDomListener(document.getElementById("map"), 'load', $scope.initialise());
  
 })
+
+var module = angular.module('starter.directives', []);
+module.directive('hideTabs', function($rootScope) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attributes) {
+            scope.$watch(attributes.hideTabs, function(value){
+                $rootScope.hideTabs = value;
+            });
+
+            scope.$on('$destroy', function() {
+                $rootScope.hideTabs = false;
+            });
+        }
+    };
+});
+
+
 
