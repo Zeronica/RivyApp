@@ -5,7 +5,7 @@ var RivySchema = new mongoose.Schema({
     body: {type: String, required: true},
     upvotes: {type: Number, default: 0},
   	comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
-  	location: { type: mongoose.Schema.Types.ObjectId, ref: 'Location', required: true }
+  	location: { type: mongoose.Schema.Types.ObjectId, ref: 'Location', required: true}
 });
 
 RivySchema.methods.upvote = function(cb) {

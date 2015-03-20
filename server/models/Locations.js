@@ -7,8 +7,8 @@ var mongoose = require('mongoose');
 
 var LocationSchema = new mongoose.Schema({
     address: {type: String, required: true, unique: true},
-    longitude: Number,
-    latitude: Number,
+    lng: {type: Number, required: true},
+    lat: {type: Number, required: true},
     upvotes: {type: Number, default: 0}
 });
 
