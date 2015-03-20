@@ -17,19 +17,6 @@ router.get('/', function(req, res, next) {
 	});
 });
 
-/*POST a new location*/
-/*given an address in the body, make a gmaps call to get the 
-longitude and latitude of the location*/
-router.post('/', function(req, res, next) {
-  var location = new Location(req.body);
-
-  location.save(function(err, location){
-    if(err){ return next(err); }
-
-    res.json(location);
-  });
-});
-
 module.exports = router;
 
 

@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
+// initializes the map interface
 .controller('HomeCtrl', function($scope, $ionicLoading) {
- 
    $scope.initialise = function() {
       console.log("In Google.maps.event.addDomListener");
       var myLatlng = new google.maps.LatLng(37.3000, -120.4833);
@@ -25,9 +25,7 @@ angular.module('starter.controllers', [])
 
       $scope.map = map;
   };
-
 google.maps.event.addDomListener(document.getElementById("map"), 'load', $scope.initialise());
- 
 })
 
 .controller('FeedCtrl', [
