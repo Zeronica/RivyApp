@@ -108,7 +108,6 @@ function($scope, rivys, rivy){
   };
 });
 
-
 var module = angular.module('starter.directives', []);
 module.directive('hideTabs', function($rootScope) {
     return {

@@ -89,6 +89,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     })
 
+     .state('tab.testmap', {
+      url: '/testmap',
+      views: {
+        'tab-testmap': {
+          templateUrl: 'templates/tab-testmap.html',
+          controller: 'TestMapCtrl'
+        }
+      }
+    })
+
   .state('tab.account', {
     url: '/account',
     views: {
