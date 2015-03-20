@@ -110,35 +110,6 @@ function($scope, rivys, rivy){
   };
 });
 
-.controller('TestMapCtrl', function($scope, $ionicLoading) {
-   $scope.initialise = function() {
-      console.log("In Google.maps.event.addDomListener");
-      var myLatlng = new google.maps.LatLng(37.3000, -120.4833);
-      var mapOptions = {
-          center: myLatlng,
-          zoom: 16,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-      console.log(mapOptions);
-      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
-      navigator.geolocation.getCurrentPosition(function(pos) {
-          console.log(pos);
-          map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-          var myLocation = new google.maps.Marker({
-              position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-              map: map,
-              title: "My Location"
-          });
-      });
-
-      $scope.map = map;
-  };
-
-google.maps.event.addDomListener(document.getElementById("map"), 'load', $scope.initialise());
- 
-})
-
 var module = angular.module('starter.directives', []);
 module.directive('hideTabs', function($rootScope) {
     return {
@@ -154,6 +125,3 @@ module.directive('hideTabs', function($rootScope) {
         }
     };
 });
-
-
-
