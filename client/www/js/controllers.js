@@ -124,4 +124,36 @@ module.directive('hideTabs', function($rootScope) {
             });
         }
     };
-});
+}); //lat lng for map starts here
+angular.module('testmap', ['OtdDirectives']);
+  function SearchForm($scope){
+    $scope.location = ''; //stores location
+    $scope.doSearch = function(){ // searches if a location exits or not 
+      if($scope.location === ''){
+          alert('no locations updates');
+          } else {
+            alert('Location found: ' + $scope.location);
+                }
+            };
+        }
+
+angular.module('OtdDirectives', []).
+  directive('googlePlaces', function(){
+    return {
+            restrict:'E',
+            replace:true,
+            // transclude:true,
+            scope: {location:'='},
+            template: '<input id="google_places_ac" name="google_places_ac" type="text" class="input-block-level"/>',
+            link: function($scope, elm, attrs){
+              var autocomplete = new google.maps.places.Autocomplete($("#google_places_ac")[0], {}); //autocomplete places functionality
+              google.maps.event.addListener(autocomplete, 'place_changed', function() {
+              var place = autocomplete.getPlace(); //get place from suggestions
+              var lat = place.geometry.location.lat(); //find latitutde
+              var lng = place.geometry.location.lng(); // find longitude 
+              $scope.location = lat + ',' + lng; //update location
+              $scope.$apply(); //apply the scope
+                        });
+                    }
+                }
+            });
