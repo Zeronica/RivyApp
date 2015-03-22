@@ -78,7 +78,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }]
   }
 })
-
+ 
+    
     .state('tab.rivyform', {
       url: '/rivyform',
       views: {

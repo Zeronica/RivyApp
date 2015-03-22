@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
@@ -11,22 +11,24 @@
     <google-places location=location></google-places>
     <button ng-click="doSearch()" class="btn btn-large btn-primary">Search</button>
 </div>
-</body>
+</body> -->
 <!-- <ion-view view-title="TestMap">
-    <ion-content>
-        <div id="map" data-tap-disabled="true"></div>
-    </ion-content>
-</ion-view>
-
-<form ng-submit="addLocation()">
-	<div class="bar bar-header item-input-inset">
-	  <label class="item-input-wrapper">
+ --> <!-- <ion-content> -->
+       <!--  <div id="map" data-tap-disabled="true"></div> -->
+<!-- 	<div class="bar bar-header item-input-inset"> -->
+	 <!--  <label class="item-input-wrapper">
 	    <i class="icon ion-ios7-search placeholder-icon"></i>
 	    <input type="search" placeholder="Search" ng-model="inputObject.body">
-	  </label>
-	  <button class="button button-clear" type="submit" ng-click="addLocation()">
+	  </label> -->
+<ion-view view-title="testmap">
+    <ion-content>
+	  <div ng-app="starter">
+	  <google-places location=location></google-places>
+	  <button class="button button-clear" ng-click="addLocation()">
 	    Post
 	  </button>
 	</div>
-</form> -->
-</html>
+	</ion-content>
+	</ion-view>
+   <!-- </ion-content>
+</ion-view> -->
