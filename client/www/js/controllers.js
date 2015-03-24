@@ -54,23 +54,27 @@ google.maps.event.addDomListener(document.getElementById("map"), 'load', $scope.
   function($scope, rivys) {
     $scope.rivys = rivys.rivys;
 
+    $scope.location = '';
+
     $scope.inputObject = {
       title: "",
-      body: "" 
+      body: ""
     };
     
     $scope.addRivy = function(){
-        if($scope.inputObject.title === "") { 
-          alert("write the title u fuk");
+        if($scope.location === "") { 
+          alert("write the address u fuk");
           return; 
         } 
-        // console.log($scope.inputObject.title)
+        console.log($scope.location)
         rivys.create({
           title: $scope.inputObject.title,
           body: $scope.inputObject.body,
+          location: $scope.location,
         })
       $scope.inputObject.title = "";
       $scope.inputObject.body = "";
+      $scope.location = "";
     };
 }])
 
