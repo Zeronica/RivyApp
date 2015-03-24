@@ -60,12 +60,19 @@ google.maps.event.addDomListener(document.getElementById("map"), 'load', $scope.
       title: "",
       body: ""
     };
-    
+    $scope.addLocation = function(){ // searches if a location exits or not 
+        if($scope.location === ''){
+          alert('no locations updates');
+          } else {
+            alert('Location found: ' + $scope.location);
+                }
+              };
     $scope.addRivy = function(){
-        if($scope.location === "") { 
-          alert("write the address u fuk");
-          return; 
-        } 
+        // if($scope.location === "") { 
+        //   alert("write the address u fuk");
+        //   return; 
+        // }
+        $scope.addLocation();
         console.log($scope.location)
         rivys.create({
           title: $scope.inputObject.title,
@@ -112,16 +119,16 @@ function($scope, rivys, rivy){
   };
 })
 
-.controller('TestMapCtrl',function($scope){
-    $scope.location = ''; //stores location
-    $scope.addLocation = function(){ // searches if a location exits or not 
-      if($scope.location === ''){
-          alert('no locations updates');
-          } else {
-            alert('Location found: ' + $scope.location);
-                }
-            };
-        })
+// .controller('TestMapCtrl',function($scope){
+//     $scope.location = ''; //stores location
+//     $scope.addLocation = function(){ // searches if a location exits or not 
+//       if($scope.location === ''){
+//           alert('no locations updates');
+//           } else {
+//             alert('Location found: ' + $scope.location);
+//                 }
+//             };
+//         })
 
 var module = angular.module('starter.directives', []);
 module.directive('hideTabs', function($rootScope) {
