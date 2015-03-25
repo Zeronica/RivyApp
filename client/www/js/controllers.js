@@ -54,11 +54,11 @@ google.maps.event.addDomListener(document.getElementById("map"), 'load', $scope.
   function($scope, rivys) {
     $scope.rivys = rivys.rivys;
 
-    $scope.lng = '';
+    $scope.lng = "";
 
-    $scope.lat = '';
+    $scope.lat = "";
 
-    $scope.address = '';
+    $scope.address = "";
 
     $scope.inputObject = {
       title: "",
@@ -169,6 +169,7 @@ module.directive('googlePlaces', function(){
               $scope.lng = lng; //update location
               $scope.lat = lat; //update location
               $scope.address = place.formatted_address;
+              // var address = $scope.address;
               console.log($scope.address);
               $scope.$apply(); //apply the scope
                         });
