@@ -8,12 +8,13 @@
   </form>
   <button ng-click="addRivy()" type="submit">Post</button> -->
  <!--  <div ng-controller="TestMapCtrl"> -->
+
  <div ng-app="starter">
   <div ng-controller="RivyFormCtrl">
-<form>
+    <form>
   <div class="list">
   <label class="item item-input">
-    <google-places location=location></google-places>
+    <google-places lat=lat lng=lng address=address></google-places>
   </label>
   <label class="item item-input">
     <input type="text" placeholder="Title" ng-model="inputObject.title">
