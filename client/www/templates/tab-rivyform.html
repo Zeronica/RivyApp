@@ -1,15 +1,20 @@
 <ion-view view-title="RivyForm">
   <ion-content>
     <!-- <form ng-submit="addRivy()">
-	  	<input type="text" placeholder="Title" ng-model="inputObject.title"></input>
-	  	<br>
-	  	<input type="text" placeholder="Comment" ng-model="inputObject.body"></input>
-	  	<br>
-	</form>
-	<button ng-click="addRivy()" type="submit">Post</button> -->
-
+      <input type="text" placeholder="Title" ng-model="inputObject.title"></input>
+      <br>
+      <input type="text" placeholder="Comment" ng-model="inputObject.body"></input>
+      <br>
+  </form>
+  <button ng-click="addRivy()" type="submit">Post</button> -->
+ <!--  <div ng-controller="TestMapCtrl"> -->
+ <div ng-app="starter">
+  <div ng-controller="RivyFormCtrl">
 <form>
-	<div class="list">
+  <div class="list">
+  <label class="item item-input">
+    <google-places location=location></google-places>
+  </label>
   <label class="item item-input">
     <input type="text" placeholder="Title" ng-model="inputObject.title">
   </label>
@@ -21,6 +26,7 @@
   Post
 </button>
 </form>
-
+</div>
+</div>
   </ion-content>
 </ion-view>

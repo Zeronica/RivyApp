@@ -54,23 +54,34 @@ google.maps.event.addDomListener(document.getElementById("map"), 'load', $scope.
   function($scope, rivys) {
     $scope.rivys = rivys.rivys;
 
+    $scope.location = '';
+
     $scope.inputObject = {
       title: "",
-      body: "" 
+      body: ""
     };
-    
+    $scope.addLocation = function(){ // searches if a location exits or not 
+        if($scope.location === ''){
+          alert('no locations updates');
+          } else {
+            alert('Location found: ' + $scope.location);
+                }
+              };
     $scope.addRivy = function(){
-        if($scope.inputObject.title === "") { 
-          alert("write the title u fuk");
-          return; 
-        } 
-        // console.log($scope.inputObject.title)
+        // if($scope.location === "") { 
+        //   alert("write the address u fuk");
+        //   return; 
+        // }
+        $scope.addLocation();
+        console.log($scope.location)
         rivys.create({
           title: $scope.inputObject.title,
           body: $scope.inputObject.body,
+          location: $scope.location,
         })
       $scope.inputObject.title = "";
       $scope.inputObject.body = "";
+      $scope.location = "";
     };
 }])
 
@@ -106,7 +117,18 @@ function($scope, rivys, rivy){
   $scope.settings = {
     enableFriends: true
   };
-});
+})
+
+// .controller('TestMapCtrl',function($scope){
+//     $scope.location = ''; //stores location
+//     $scope.addLocation = function(){ // searches if a location exits or not 
+//       if($scope.location === ''){
+//           alert('no locations updates');
+//           } else {
+//             alert('Location found: ' + $scope.location);
+//                 }
+//             };
+//         })
 
 var module = angular.module('starter.directives', []);
 module.directive('hideTabs', function($rootScope) {
@@ -122,21 +144,8 @@ module.directive('hideTabs', function($rootScope) {
             });
         }
     };
-}); //lat lng for map starts here
-angular.module('testmap', ['OtdDirectives']);
-  function SearchForm($scope){
-    $scope.location = ''; //stores location
-    $scope.doSearch = function(){ // searches if a location exits or not 
-      if($scope.location === ''){
-          alert('no locations updates');
-          } else {
-            alert('Location found: ' + $scope.location);
-                }
-            };
-        }
-
-angular.module('OtdDirectives', []).
-  directive('googlePlaces', function(){
+});
+module.directive('googlePlaces', function(){
     return {
             restrict:'E',
             replace:true,
@@ -155,3 +164,4 @@ angular.module('OtdDirectives', []).
                     }
                 }
             });
+ //lat lng for map starts here
