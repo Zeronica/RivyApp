@@ -54,34 +54,42 @@ google.maps.event.addDomListener(document.getElementById("map"), 'load', $scope.
   function($scope, rivys) {
     $scope.rivys = rivys.rivys;
 
-    $scope.location = '';
+    $scope.lng = '';
+
+    $scope.lat = '';
+
+    $scope.address = '';
 
     $scope.inputObject = {
       title: "",
       body: ""
     };
-    $scope.addLocation = function(){ // searches if a location exits or not 
-        if($scope.location === ''){
-          alert('no locations updates');
-          } else {
-            alert('Location found: ' + $scope.location);
-                }
-              };
+    // $scope.addLocation = function(){ // searches if a location exits or not 
+    //     if($scope.location === ''){
+    //       alert('no locations updates');
+    //       } else {
+    //         alert('Location found: ' + $scope.location);
+    //             }
+    //           };
     $scope.addRivy = function(){
         // if($scope.location === "") { 
         //   alert("write the address u fuk");
         //   return; 
         // }
-        $scope.addLocation();
-        console.log($scope.location)
+        // $scope.addLocation();
+        console.log($scope.address)
         rivys.create({
           title: $scope.inputObject.title,
           body: $scope.inputObject.body,
-          location: $scope.location,
-        })
+          lng: $scope.lng,
+          lat: $scope.lat,
+          address: $scope.address,
+       })
       $scope.inputObject.title = "";
       $scope.inputObject.body = "";
-      $scope.location = "";
+      $scope.lng = "";
+      $scope.lat = "";
+      $scope.address = "";
     };
 }])
 
@@ -158,7 +166,10 @@ module.directive('googlePlaces', function(){
               var place = autocomplete.getPlace(); //get place from suggestions
               var lat = place.geometry.location.lat(); //find latitutde
               var lng = place.geometry.location.lng(); // find longitude 
-              $scope.location = lat + ',' + lng; //update location
+              $scope.lng = lng; //update location
+              $scope.lat = lat; //update location
+              $scope.address = place.formatted_address;
+              console.log($scope.address);
               $scope.$apply(); //apply the scope
                         });
                     }

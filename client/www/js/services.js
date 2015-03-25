@@ -7,7 +7,7 @@ angular.module('starter.services', [])
     };
 
     o.getAll = function() {
-        $http.get("http://localhost:3000/rivys")
+        $http.get("https://rivy.herokuapp.com/rivys")
           .success(function(data) {
             angular.copy(data, o.rivys);
           }).error(function (data) {
@@ -17,30 +17,30 @@ angular.module('starter.services', [])
     },
 
     o.create = function(rivy) {
-      return $http.post('http://localhost:3000/rivys', rivy).success(function(data){
+      return $http.post('https://rivy.herokuapp.com/rivys', rivy).success(function(data){
       o.rivys.push(data);
     });
   };
 
     o.get = function(id) {
-    return $http.get('http://localhost:3000/rivys/' + id).then(function(res){
+    return $http.get('https://rivy.herokuapp.com/rivys/' + id).then(function(res){
     return res.data;
     });
   };
 
     o.addComment = function(id, comment) {
-      return $http.post('http://localhost:3000/rivys/' + id + '/comments', comment);
+      return $http.post('https://rivy.herokuapp.com/rivys/' + id + '/comments', comment);
     };
 
     o.upvote = function(rivy) {
-    return $http.post('http://localhost:3000/rivys/' + rivy._id + '/upvote')
+    return $http.post('https://rivy.herokuapp.com/rivys/' + rivy._id + '/upvote')
       .success(function(data){
         rivy.upvotes += 1;
       });
   };
 
     o.upvoteComment = function(rivy, comment) {
-    return $http.post('http://localhost:3000/rivys/' + rivy._id + '/comments/'+ comment._id + '/upvote')
+    return $http.post('https://rivy.herokuapp.com/rivys/' + rivy._id + '/comments/'+ comment._id + '/upvote')
     .success(function(data){
       comment.upvotes += 1;
     });
