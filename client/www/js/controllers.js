@@ -127,6 +127,7 @@ function($scope, rivys, rivy){
   };
 })
 
+
 // .controller('TestMapCtrl',function($scope){
 //     $scope.location = ''; //stores location
 //     $scope.addLocation = function(){ // searches if a location exits or not 
@@ -158,7 +159,7 @@ module.directive('googlePlaces', function(){
             restrict:'E',
             replace:true,
             // transclude:true,
-            scope: {location:'='},
+            scope: {lat:'=', lng:'=', address:'='},
             template: '<input id="google_places_ac" name="google_places_ac" type="text" class="input-block-level"/>',
             link: function($scope, elm, attrs){
               var autocomplete = new google.maps.places.Autocomplete($("#google_places_ac")[0], {}); //autocomplete places functionality
@@ -170,7 +171,7 @@ module.directive('googlePlaces', function(){
               $scope.lat = lat; //update location
               $scope.address = place.formatted_address;
               // var address = $scope.address;
-              console.log($scope.address);
+              // console.log($scope.address);
               $scope.$apply(); //apply the scope
                         });
                     }
