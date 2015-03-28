@@ -1,32 +1,84 @@
 angular.module('starter.controllers', [])
 
 // initializes the map interface
-.controller('HomeCtrl', function($scope, $ionicLoading) {
-   $scope.initialise = function() {
-      console.log("In Google.maps.event.addDomListener");
-      var myLatlng = new google.maps.LatLng(37.3000, -120.4833);
+.controller('HomeCtrl', ['$scope','rivys','$http', function($scope,rivys,$http,$ionicLoading) {
+      $scope.rivys = rivys.rivys;
       var mapOptions = {
-          center: myLatlng,
-          zoom: 16,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-      console.log(mapOptions);
-      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        zoom: 16,
+        center: new google.maps.LatLng(37.3000, -120.4833),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      } 
 
-      navigator.geolocation.getCurrentPosition(function(pos) {
-          console.log(pos);
-          map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-          var myLocation = new google.maps.Marker({
-              position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-              map: map,
-              title: "My Location"
-          });
-      });
+   // $scope.initialise = function() {
+   //    console.log("In Google.maps.event.addDomListener");
+   //    var myLatlng = new google.maps.LatLng(37.3000, -120.4833);
+   //    var mapOptions = {
+   //        center: myLatlng,
+   //        zoom: 16,
+   //        mapTypeId: google.maps.MapTypeId.ROADMAP
+   //    };
+   //    console.log(mapOptions);
+      
+      // var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+      $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+      $scope.markers = [];
+      var infoWindow = new google.maps.InfoWindow();
 
-      $scope.map = map;
-  };
-google.maps.event.addDomListener(document.getElementById("map"), 'load', $scope.initialise());
-})
+    $scope.getLocation = function() {
+    $http.get("http://localhost:3000/rivys")
+     .success(function(newItems) {
+       $scope.rivys = newItems;
+     })}
+
+    // var createMarker = function (info){
+        
+    //     var marker = new google.maps.Marker({
+    //         map: $scope.map,
+    //         position: new google.maps.LatLng(info.lat, info.lng),
+    //         // title: info.city
+    //     });
+        // marker.content = '<div class="infoWindowContent">' '</div>';
+        
+        // google.maps.event.addListener(marker, 'click', function(){
+        //     infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
+        //     infoWindow.open($scope.map, marker);
+        // });
+        
+        // $scope.markers.push(marker);
+        
+  //  }  
+
+    for (i = 0; i < $scope.rivys.length; i++){
+        // createMarker($scope.rivys[i]);
+        var marker = new google.maps.Marker({
+        map: $scope.map,
+        position: new google.maps.LatLng(rivys.lat,rivys.lng)
+        
+        });
+
+        $scope.markers.push(marker);
+    }
+
+
+    // $scope.openInfoWindow = function(e, selectedMarker){
+    //     e.preventDefault();
+    //     google.maps.event.trigger(selectedMarker, 'click');
+    // }
+
+
+
+      // navigator.geolocation.getCurrentPosition(function(pos) {
+      //     console.log(pos);
+      //     map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+      //     var myLocation = new google.maps.Marker({
+      //         position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+      //         map: map,
+      //         title: "My Location"
+      //     });
+      // });
+//google.maps.event.addDomListener(document.getElementById("map"), 'load', $scope.initialise());
+
+}])
 
 .controller('FeedCtrl', [
   '$scope',
@@ -84,7 +136,7 @@ google.maps.event.addDomListener(document.getElementById("map"), 'load', $scope.
           lng: $scope.lng,
           lat: $scope.lat,
           address: $scope.address,
-       })
+       })  
       $scope.inputObject.title = "";
       $scope.inputObject.body = "";
       $scope.lng = "";
