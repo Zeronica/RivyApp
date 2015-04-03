@@ -1,8 +1,11 @@
 angular.module('starter.controllers', [])
 
 // initializes the map interface
-.controller('HomeCtrl', ['$scope','rivys','$http', function($scope,rivys,$http,$ionicLoading) {
-      $scope.rivys = rivys.rivys;
+.controller('HomeCtrl', ['$scope','locations','$http', function($scope,locations,$ionicLoading) {
+      $scope.locations = locations.locations;
+      $scope.getLocation = function(){
+        locations.getAll();
+      }
       var mapOptions = {
         zoom: 16,
         center: new google.maps.LatLng(37.3000, -120.4833),
@@ -24,11 +27,11 @@ angular.module('starter.controllers', [])
       $scope.markers = [];
       var infoWindow = new google.maps.InfoWindow();
 
-    $scope.getLocation = function() {
-    $http.get("http://localhost:3000/rivys")
-     .success(function(newItems) {
-       $scope.rivys = newItems;
-     })}
+    // $scope.getLocation = function() {
+    // $http.get("https://rivy.herokuapp.com/locations")
+    //  .success(function(newItems) {
+    //    $scope.rivys = newItems;
+    //  })}
 
     // var createMarker = function (info){
         
@@ -48,11 +51,12 @@ angular.module('starter.controllers', [])
         
   //  }  
 
-    for (i = 0; i < $scope.rivys.length; i++){
+    for (i = 0; i < locations.length; ++i){
         // createMarker($scope.rivys[i]);
+        var location = locations[i];
         var marker = new google.maps.Marker({
         map: $scope.map,
-        position: new google.maps.LatLng(rivys.lat,rivys.lng)
+        position: new google.maps.LatLng(location.lat,location.lng)
         
         });
 

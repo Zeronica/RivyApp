@@ -1,6 +1,25 @@
 angular.module('starter.services', [])
 
-.factory('rivys', 
+.factory('locations'
+  ['$http',function($http){
+    var o = {
+     locations: []
+    };
+    o.getAll = function() {
+        $http.get("https://rivy.herokuapp.com/locations")
+          .success(function(data) {
+            angular.copy(data, o.locations);
+          }).error(function (data) {
+            alert("error with loading locations");
+          })
+        return;
+    };
+
+    return o;
+
+  }])
+
+.factory('rivys',
   ['$http',function($http){
     var o = {
         rivys: []
